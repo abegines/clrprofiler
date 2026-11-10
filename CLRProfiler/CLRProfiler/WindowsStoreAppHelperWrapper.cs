@@ -57,6 +57,12 @@ namespace CLRProfiler
 
         public static void Init()
         {
+            if (s_isInitialized)
+                return;
+            s_isInitialized = true;
+            s_isWindowsStoreAppSupported = true;
+            return;
+            /*
             const string helperAsmName = "CLRProfilerWindowsStoreAppHelper.dll";
             const string windowsStoreAppHelperType = "CLRProfilerWindowsStoreAppHelper.WindowsStoreAppHelper";
 
@@ -112,6 +118,7 @@ namespace CLRProfiler
             }
 
             s_isWindowsStoreAppSupported = true;
+            */
         }
 
         public static bool IsWindowsStoreAppSupported()
